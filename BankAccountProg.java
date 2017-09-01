@@ -6,32 +6,44 @@ public static void main(String[] args){
 
 	//Main code here 
 	System.out.println("Welcome to your account");
-	}
-  private double balance;
-   public BankAccountProg(){
-   }
-   public BankAccountProg ( double balance){
-	   this.balance = balance;
-	   
-
-//This function will deposit money into an account
-public void depositM(double amount){
-   balance +=amount;
- 
-
-	}
-
-//This function will withdraw money from the account
-public void withdrawM(double amount){
-      balance-=amount
-
-	}
-	
-	BankAccountProg bal = new BankAccountProg ();
-	bal.depositM();
-	bal.withdrawM();
-	
-	
+	personsAcc person1 = new personsAcc("John");
+	person1.setAccount(0001);
+	person1.setBalance(0.0);
+	person1.deposit(20);
+	person1.viewBalance();	
+	} 	
 }
 
+class personsAcc{
+
+	String name;
+	int accountNum;
+	double accountBal;
+
+	personsAcc(String name){	
+		this.name = name;
+	}
+
+	public int setAccount(int accountNum){
+		this.accountNum = accountNum;
+		return accountNum;	
+	}
+
+	public double setBalance(double accountBal){
+		this.accountBal = accountBal;
+		return accountBal;	
+	}
+
+	public void viewBalance(){
+		System.out.println("Your balance is: " + accountBal);
+	}
+
+	public void deposit(double accountBal){
+		this.accountBal = accountBal;
+	}
+
+	public void withdraw(double accountBal){
+		this.accountBal = accountBal;
+	}
+}
 
