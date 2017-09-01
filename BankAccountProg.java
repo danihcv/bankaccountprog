@@ -10,7 +10,10 @@ public static void main(String[] args){
 	person1.setAccount(0001);
 	person1.setBalance(0.0);
 	person1.deposit(20);
-	person1.viewBalance();	
+	person1.viewBalance();
+	person1.deposit(5);
+	person1.withdraw(15);
+	person1.viewBalance();
 	} 	
 }
 
@@ -18,19 +21,20 @@ class personsAcc{
 
 	String name;
 	int accountNum;
-	double accountBal;
+	double accountBal = 0;
 
 	personsAcc(String name){	
 		this.name = name;
 	}
 
+	//We need to check for same account numbers
 	public int setAccount(int accountNum){
 		this.accountNum = accountNum;
 		return accountNum;	
 	}
 
 	public double setBalance(double accountBal){
-		this.accountBal = accountBal;
+		this.accountBal += accountBal;
 		return accountBal;	
 	}
 
@@ -39,11 +43,11 @@ class personsAcc{
 	}
 
 	public void deposit(double accountBal){
-		this.accountBal = accountBal;
+		this.accountBal += accountBal;
 	}
 
 	public void withdraw(double accountBal){
-		this.accountBal = accountBal;
+		this.accountBal -= accountBal;
 	}
 }
 
