@@ -19,9 +19,9 @@ public static void main(String[] args){
 
 class personsAcc{
 
-	String name;
-	int accountNum;
-	double accountBal = 0;
+	private	String name;
+	private int accountNum;
+	private double accountBal = 0;
 
 	personsAcc(String name){	
 		this.name = name;
