@@ -13,7 +13,8 @@ public static void main(String[] args){
 	person1.viewBalance();
 	person1.deposit(5);
 	person1.withdraw(15);
-	person1.viewBalance();
+	//person1.viewBalance();
+	person1.viewInfo();
 	} 	
 }
 
@@ -48,6 +49,11 @@ class personsAcc{
 
 	public void withdraw(double accountBal){
 		this.accountBal -= accountBal;
+	}
+
+	public void viewInfo(){
+		String info = new String("Name: " + name + "\nAccount Number: " + accountNum + "\nAccount Balance: " + accountBal);
+		System.out.println(info);
 	}
 }
 
