@@ -8,6 +8,7 @@ public static void main(String[] args){
 
 	//Main code here 
 	System.out.println("Welcome to your account");
+<<<<<<< HEAD
 	ArrayList<personsAcc> personList = new ArrayList<personsAcc>();
 	personList.add(new personsAcc("John"));
 	personList.add(new personsAcc("Smith"));
@@ -19,6 +20,17 @@ public static void main(String[] args){
 		personList.get(i).setBalance(Math.random() * 300 + 1);
 		personList.get(i).viewInfo();
 		}
+=======
+	personsAcc person1 = new personsAcc("John");
+	person1.setAccount(0001);
+	person1.setBalance(0.0);
+	person1.deposit(20);
+	person1.viewBalance();
+	person1.deposit(5);
+	person1.withdraw(15);
+	//person1.viewBalance();
+	person1.viewInfo();
+>>>>>>> 3d1fda0dc641a36af54e5a8bf2ddb2fbf94c3e0c
 	} 	
 }
 
