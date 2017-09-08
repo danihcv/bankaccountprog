@@ -1,4 +1,5 @@
 
+import java.util.Scanner;
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -6,9 +7,11 @@ import java.util.Random;
 
 class BankAccountProg{
 
+	static ArrayList<personAcc> personList;
+
 	public static void main(String[] args) {
 
-        	ArrayList<personAcc> personList = new ArrayList<personAcc>();
+        	personList = new ArrayList<personAcc>();
         	String names;
         	Random ran = new Random();
         	try{
