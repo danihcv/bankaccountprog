@@ -35,5 +35,13 @@ public class personAcc {
         String info = new String("Welcome to your Account. \n" + "Name: " + name + "\nAccount Number: " + accountNum + "\nAccount Balance: $" + accountBal + "\n");
         System.out.println(info);
     }
+
+    public String viewName(){
+        return name;
+    }
+
+    public double getBalance(){
+        return accountBal;
+    }
 }
 
