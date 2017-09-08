@@ -26,7 +26,54 @@ class BankAccountProg{
             		personList.get(i).setBalance(ran.nextInt(200) + 1);
             		personList.get(i).viewInfo();
         	}
-    	}	
+
+		Scanner sc = new Scanner(System.in);
+        	System.out.println("User Authentication\nEnter Name: ");
+        	String name = sc.next();
+        	authenticate(name); //calls out the method authenticate
+    	}
+
+	public static void authenticate(String name){
+
+        for(int i = 0; i < personList.size(); i++){
+            if(name.equals(personList.get(i).viewName())) {
+                int option = 0;
+
+                do {
+                        System.out.println("What would like to do?\n1. Deposit\n2. Withdraw\n3. View Balance\n4. View Info\n5. Exit");
+                        Scanner sc = new Scanner(System.in);
+                        option = sc.nextInt();
+
+                        switch (option) {
+                            case 1:
+                                System.out.println("How much do you want to deposit: ");
+                                int amount = sc.nextInt();
+                                personList.get(i).deposit(amount);
+                                break;
+                            case 2:
+                                System.out.println("How much do you want to withdraw: ");
+                                int amount2 = sc.nextInt();
+                                if (personList.get(i).getBalance() < amount2) {
+                                    System.out.println("Not enough funds!");
+                                } else
+                                    personList.get(i).withdraw(amount2);
+                                break;
+                            case 3:
+                                personList.get(i).viewBalance();
+                                break;
+                            case 4:
+                                personList.get(i).viewInfo();
+                                break;
+                            case 5:
+                            default:
+                                System.out.println("You exited the program");
+                                break;
+                        }
+                } while (option == 1 || option == 2 || option == 3 || option == 4);
+            }
+                //no else function
+        }
+    }	
 }
 
 
