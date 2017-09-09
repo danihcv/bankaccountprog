@@ -1,8 +1,7 @@
 public class personAcc {
+    private AccountState account = null;
 
     private	String name;
-    private int accountNum;
-    private double accountBal = 0;
 
     personAcc(String name){
         this.name = name;
@@ -10,29 +9,41 @@ public class personAcc {
 
     //We need to check for same account numbers
     public int setAccount(int accountNum){
-        this.accountNum = accountNum;
+        if (this.account == null) {
+            this.account = new PositiveBalance(accountNum, 0);
+        } else {
+            this.account.setAccountNum(accountNum);
+        }
         return accountNum;
     }
 
-    public double setBalance(double accountBal){
-        this.accountBal += accountBal;
+    public double setBalance(double accountBal) {
+        if (this.account == null) {
+            return 0;
+        }  else {
+            this.account.setAccountBal(accountBal);
+        }
         return accountBal;
     }
 
     public void viewBalance(){
-        System.out.println("Your balance is: $" + accountBal);
+        System.out.println("Your balance is: $" + this.account.getAccountBal());
     }
 
-    public void deposit(double accountBal){
-        this.accountBal += accountBal;
+    public void deposit(double amount){
+        this.account = this.account.deposit(amount);
     }
 
-    public void withdraw(double accountBal){
-        this.accountBal -= accountBal;
+    public void withdraw(double amount){
+        this.account = this.account.withdraw(amount);
     }
 
     public void viewInfo(){
-        String info = new String("Welcome to your Account. \n" + "Name: " + name + "\nAccount Number: " + accountNum + "\nAccount Balance: $" + accountBal + "\n");
+        String info = "Welcome to your Account. \n" +
+                "Name: " + name + "\n" +
+                "Account Number: " + this.account.getAccountNum() + "\n" +
+                "Account Balance: $" + this.account.getAccountBal() + "\n" +
+                "Account Status: " + this.account + "\n";
         System.out.println(info);
     }
 
@@ -41,7 +52,7 @@ public class personAcc {
     }
 
     public double getBalance(){
-        return accountBal;
+        return this.account.getAccountBal();
     }
 }
 

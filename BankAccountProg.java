@@ -7,11 +7,11 @@ import java.util.Random;
 
 class BankAccountProg{
 
-	static ArrayList<personAcc> personList;
+	private static ArrayList<personAcc> personList;
 
 	public static void main(String[] args) {
 
-        	personList = new ArrayList<personAcc>();
+        	personList = new ArrayList<>();
         	String names;
         	Random ran = new Random();
         	try{
@@ -56,10 +56,7 @@ class BankAccountProg{
                             case 2:
                                 System.out.println("How much do you want to withdraw: ");
                                 int amount2 = sc.nextInt();
-                                if (personList.get(i).getBalance() < amount2) {
-                                    System.out.println("Not enough funds!");
-                                } else
-                                    personList.get(i).withdraw(amount2);
+                                personList.get(i).withdraw(amount2);
                                 break;
                             case 3:
                                 personList.get(i).viewBalance();
