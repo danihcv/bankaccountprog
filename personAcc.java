@@ -10,7 +10,7 @@ public class personAcc {
     //We need to check for same account numbers
     public int setAccount(int accountNum){
         if (this.account == null) {
-            this.account = new PositiveBalance(accountNum, 0);
+            this.account = new NonPositiveBalance(accountNum, 0);
         } else {
             this.account.setAccountNum(accountNum);
         }
@@ -21,7 +21,7 @@ public class personAcc {
         if (this.account == null) {
             return 0;
         }  else {
-            this.account.setAccountBal(accountBal);
+            this.account = this.account.setAccountBal(accountBal);
         }
         return accountBal;
     }

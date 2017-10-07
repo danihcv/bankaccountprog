@@ -14,8 +14,15 @@ abstract class AccountState {
         return accountBal;
     }
 
-    void setAccountBal(double accountBal) {
+    AccountState setAccountBal(double accountBal) {
         this.accountBal = accountBal;
+
+        if (this.accountBal > 0) {
+            return new PositiveBalance(this.accountNum, this.accountBal);
+        } else if (this.accountBal == 0) {
+            return new NonPositiveBalance(this.accountNum, this.accountBal);
+        }
+        return this;
     }
 
     AccountState(int accountNum, double accountBal) {
